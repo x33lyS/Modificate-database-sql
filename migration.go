@@ -1,3 +1,4 @@
+
 package main
 
 import (
@@ -14,6 +15,12 @@ func main() {
 		return
 	}
 	var database = os.Args[1]
+	e := os.Remove("dest.sqlite")
+	if e != nil {
+		fmt.Println("No such file dest.sqlite")
+	} else {
+		fmt.Println("Removing last dest.sqlite")
+	}
 	dest := "dest.sqlite"
 
 	bytesRead, err := ioutil.ReadFile(database)
